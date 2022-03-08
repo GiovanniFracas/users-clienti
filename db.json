@@ -1,0 +1,77 @@
+{
+  "users": [
+    {
+      "email": "d@gmail.com",
+      "nome": "d",
+      "password": "sdasd",
+      "id": 1
+    },
+    {
+      "email": "prova@gmail.com",
+      "password": "$2a$10$ByZ9clSe3f6VxwmFyeWeueqZ0mYgxH9J2.MmgTdNqJG0INI2M/3MG",
+      "nome": "prova",
+      "id": 2
+    },
+    {
+      "email": "prova2@gmail.com",
+      "password": "$2a$10$6Zwb2SR290iVA7BrTrDKgOCnZGxe9e3VF2kViDcavhw/Oly2OpXFa",
+      "nome": "ffadasda",
+      "id": 3
+    },
+    {
+      "email": "fgsddgsgsd@gfdh.com",
+      "password": "$2a$10$gE.TKWms2q.E1YbSR6npju0qgLnCm3RvVPoK31o.WLk1u9rHj9N3y",
+      "nome": "asfafsffg",
+      "ruolo": "admin",
+      "id": 4
+    },
+    {
+      "email": "prova3@gmail.com",
+      "password": "$2a$10$uW6419Guv7HPuUPCVvZtpeiMoJA0c1mLJ/IMO7mLxFkN/nG4VPxKa",
+      "nome": "prova3",
+      "ruolo": "admin",
+      "id": 5
+    }
+  ],
+  "clienti": [
+    {
+      "nome": "client1",
+      "cognome": "cognome1",
+      "indirizzo": "ind",
+      "azienda": "az",
+      "info": "info",
+      "utenteid": 5,
+      "id": 1
+    },
+    {
+      "nome": "client1",
+      "cognome": "cognome1",
+      "indirizzo": "ind",
+      "azienda": "az",
+      "info": "info",
+      "utenteid": 5,
+      "id": 2
+    },
+    {
+      "nome": "client1",
+      "cognome": "cognome1",
+      "indirizzo": "ind",
+      "azienda": "az",
+      "info": "info",
+      "utenteid": 5,
+      "id": 3
+    },
+    {
+      "nome": "g",
+      "cognome": "g",
+      "indirizzo": "g",
+      "azienda": "g",
+      "info": "g",
+      "utenteid": 5,
+      "id": 4
+    }
+  ],
+  "clientiInfo": [
+    {}
+  ]
+}
