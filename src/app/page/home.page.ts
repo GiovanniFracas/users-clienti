@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { BehaviorSubject } from "rxjs";
 import { AuthService, ClientData } from "../auth.service";
 import { ClientService } from "../client.service";
 
 @Component({
   template: `
-  <button type="button" class="btn btn-primary" (click)="!isAggiunto">Aggiungi</button>
+  <button type="button" class="btn btn-primary" (click)="isAggiunto=true">Aggiungi</button>
   <div *ngIf="isAggiunto">
   <form #f="ngForm" (ngSubmit)="submit(f)">
             <div class="form-group">
@@ -28,10 +29,7 @@ import { ClientService } from "../client.service";
               <label for="info">info</label>
               <input ngModel name="info" class="form-control" type="text" id="pass" />
             </div>
-            <div class="form-group">
-              <label for="utenteId">utenteId</label>
-              <input ngModel name="utenteId" class="form-control" type="text" id="pass" value="{{utenteId}}" />
-            </div>
+
             <button  class="btn btn-secondary mt-3" [disabled]="false" type="submit">Entra
             </button>
 
@@ -46,34 +44,34 @@ import { ClientService } from "../client.service";
   `
 })
 export class homePage implements OnInit {
-  isAggiunto:boolean =true;
-  clienti!:any;
-  clientiVeri!:ClientData[]
-  utenteId!:number;
+
+  isAggiunto: boolean = false;
+  clienti!: any;
+  clientiVeri!: ClientData[]
+  utenteid!: number;
   errorMessage: undefined;
-  constructor(private authSrv: AuthService, private router:Router, private clientSrv :ClientService){}
+  constructor(private authSrv: AuthService, private router: Router, private clientSrv: ClientService) { }
   ngOnInit(): void {
     this.getClienti()
   }
-  async getClienti(){
-     (await this.clientSrv.getClienti()).subscribe((res)=>{
-       console.log(res);
-      this.clienti=res;
-      this.clientiVeri=this.clienti;
-      this.utenteId=this.clientSrv.utenteId;
-      console.log(this.utenteId);
-     });
+  async getClienti() {
+    (await this.clientSrv.getClienti()).subscribe((res) => {
+      console.log(res);
+      this.clienti = res;
+      this.clientiVeri = this.clienti;
+      this.utenteid = this.clientSrv.utenteid;
+      console.log(this.utenteid);
+    });
   }
 
   async submit(form: any) {
     console.log(form);
-
-
     try {
       await (await this.clientSrv.aggiungiCliente(form.value))
       this.errorMessage = undefined
-      this.isAggiunto=false;
+      this.isAggiunto = false;
       console.log(form.value);
+      this.getClienti();
 
     } catch (error: any) {
       this.errorMessage = error
